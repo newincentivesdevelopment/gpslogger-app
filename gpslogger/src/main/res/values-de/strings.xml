@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Navigationsmenü schließen</string>
     <string name="app_name">GPSLogger</string>
     <string name="settings_screen_name">GPSLogger - Einstellungen</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
     <string name="hide">Ausblenden</string>
     <string name="could_not_write_to_file">In Datei konnte nicht geschrieben werden</string>
@@ -32,7 +32,7 @@
     <string name="summary_freq_max">Maximum</string>
     <string name="summary_dist">Entfernung:</string>
     <string name="summary_current_filename">Datei:</string>
-    <string name="sharing_location_only">Nur Orte</string>
+    <string name="sharing_location_only">Nur Standort</string>
     <string name="sharing_mylocation">Mein Standort</string>
     <string name="sharing_via">Teilen über</string>
     <!-- general -->
@@ -42,9 +42,9 @@
     <string name="meters"> Meter</string>
     <string name="error">Fehler</string>
     <string name="error_connection">Verbindungsfehler. Bitte prüfen Sie Ihre Telefoneinstellungen.</string>
-    <string name="seconds"> Sek.</string>
+    <string name="seconds">Sekunde(n)</string>
     <string name="minutes"> Minute(n)</string>
-    <string name="hours">Std.</string>
+    <string name="hours">Stunden</string>
     <string name="gpsprovider_unavailable">Kein GPS-Anbieter verfügbar. Bitte überprüfen Sie Ihre Einstellungen für Standortdienste und aktivieren Sie einen Dienst für die Standortbestimmung.    </string>
     <string name="started">Gestartet</string>
     <string name="providername_gps">GPS-Satelliten</string>
@@ -91,7 +91,7 @@
     <string name="settings_accuracy_in_meters">Genauigkeit in Metern</string>
     <string name="settings_enter_meters">Eingabe in Metern (max. 9999)</string>
     <!-- Settings -->
-    <string name="pref_logging_title">Aufzeichnungsinformationen</string>
+    <string name="pref_logging_title">Aufzeichnungsdetails</string>
     <string name="log_gpx_title">In eine GPX-Datei protokollieren</string>
     <string name="log_gpx_summary">Aufzeichnen von Orten in eine GPX v1.0-Datei</string>
     <string name="log_gpx_11_title">GPX 1.1 verwenden</string>
@@ -115,11 +115,10 @@
     <string name="pref_performance_title">Leistung</string>
     <string name="pref_performance_summary">Intervalle, Filter und Standortbestimmung</string>
     <string name="time_before_logging_title">Aufzeichnungsintervall</string>
-    <string name="time_before_logging_summary">Verwenden Sie 0 für den maximalen Intervall, langsamer ist jedoch besser für die Akkulaufzeit.
-        Die Konfiguration des Akkuladestands im System kann diese Einstellung außer Kraft setzen, siehe auch Hilfe und FAQ.</string>
+    <string name="time_before_logging_summary">0 für maximale Frequenz verwenden, aber langsamer ist besser für die Akkulaufzeit. Die Systemkonfiguration für den Akku kann diese Einstellung überschreiben, siehe Hilfe und FAQ.</string>
     <string name="time_before_logging_dialog_title">Zeit in Sekunden</string>
-    <string name="time_before_logging_hint">Eingabe in Sekunden (max. 9999)</string>
-    <string name="keep_fix_summary">Seien Sie vorsichtig - Diese Einstellung wird die Akkulaufzeit drastisch verkürzen. Nur für höhere Präzision bei geringer Häufigkeit verwenden.    </string>
+    <string name="time_before_logging_hint">Sekunden eingeben (max. 9999)</string>
+    <string name="keep_fix_summary">Seien Sie vorsichtig, dies verkürzt die Akkulaufzeit erheblich. Nur für höhere Präzision bei niedrigen Frequenzen verwenden.</string>
     <string name="keep_fix_title">GPS zwischen den Positionsbestimmungen eingeschaltet lassen</string>
     <string name="retry_time_title">Zeit, bis die Genauigkeit erreicht ist</string>
     <string name="retry_time_summary">Nach dem Erhalt der ersten Positionsbestimmung so lange warten, bis die eingestellte Genauigkeit erreicht ist.</string>
@@ -175,7 +174,7 @@
     <string name="emailprovider_msn">Windows Live Mail</string>
     <string name="emailprovider_manual">Manuell</string>
     <string name="dropbox_setup_title">Dropbox</string>
-    <string name="dropbox_authorize_description">Um Dropbox-Funktionen nutzen zu können, müssen Sie GPSLogger berechtigen, Dateien in Ihr Konto hochzuladen zu dürfen.    </string>
+    <string name="dropbox_authorize_description">Um Dropbox-Funktionen nutzen zu können, müssen Sie GPSLogger berechtigen, Dateien in Ihr Konto hochzuladen.</string>
     <string name="dropbox_unauthorize_description">Sie sind für Dropbox berechtigt. Die Dateien werden nach „Apps\\GPSLogger for Android“ hochgeladen. Sie können bei Bedarf die Verbindung von GPSLogger zu Ihrer Dropbox trennen.</string>
     <string name="dropbox_couldnotauthorize">Dropbox-Anmeldung fehlgeschlagen, bitte probiere es später noch einmal</string>
     <string name="owncloud_setup_title">ownCloud</string>
@@ -193,7 +192,7 @@
     <string name="google_drive_testupload_success">Hochgeladen. Bitte prüfen Sie Ihre Google-Dokumente auf eine neue Datei.</string>
     <string name="autoemail_sendto_csv">Einzelne E-Mail-Adressen durch Kommata trennen</string>
     <string name="autosend_enabled">Automatisches Senden erlauben</string>
-    <string name="autosend_enabled_summary">Ermöglicht das Senden der Dateien an verschiedene Ziele, mit einer bestimmten Frequenz, oder falls sich der Name aufgrund benutzerdefinierter Benennung ändert</string>
+    <string name="autosend_enabled_summary">Ermöglicht das Senden der Dateien an verschiedene Ziele mit einer bestimmten Frequenz oder wenn sich der Name aufgrund benutzerdefinierter Benennung ändert</string>
     <string name="autosend_frequency_summary">Zeiteinheit (in Minuten) festlegen, wie häufig Protokolldateien gesendet werden sollen. Wert auf „0“ setzen, um diese Funktion zu deaktivieren.</string>
     <string name="autosend_frequency">Wie oft\?</string>
     <string name="autosend_sendzip_title">Als Zip-Datei senden</string>
@@ -202,7 +201,7 @@
     <string name="menu_autosend_now">Jetzt automatisch senden</string>
     <string name="autosend_sending">Automatisch senden</string>
     <string name="summary_autosend">Automatisches Senden:</string>
-    <string name="pref_autosend_title">Automatisches Senden, E-Mail und Hochladen</string>
+    <string name="pref_autosend_title">Automat. Senden, E-Mail, Hochladen</string>
     <string name="pref_autosend_summary">E-Mail-, Teilen- und Hochladen-Optionen</string>
     <string name="shortcut_start">Starten</string>
     <string name="shortcut_stop">Beenden</string>
@@ -217,7 +216,7 @@
     <string name="opengts_server_communication_method_summary">HTTP-basierte oder Raw-Socket-basierte Kommunikation</string>
     <string name="autoopengts_server_path">Serverpfad</string>
     <string name="autoopengts_server_path_summary">Optional und nur für HTTP-basierte Kommunikation. Beispielsweise „/gprmc/Data“</string>
-    <string name="autoopengts_device_id">Geräte-Kennung</string>
+    <string name="autoopengts_device_id">Gerätekennung</string>
     <string name="autoftp_username">Benutzername</string>
     <string name="autoftp_password">Passwort</string>
     <string name="autoftp_advanced_settings">Erweiterte Einstellungen</string>
@@ -268,12 +267,12 @@
     <string name="save">Speichern</string>
     <string name="pref_filedetails_title">Datei- und Ordnerinformationen</string>
     <string name="absolute_timeout_title">Absolute Zeit bis zur GPS-Positionsbestimmung</string>
-    <string name="absolute_timeout_summary">Zeit (in Sekunden), nach denen die App die Positionsbestimmung unterbricht, unabhängig von anderen Einstellungen. Dies ist besonders sinnvoll, wenn Sie sich innerhalb von Gebäuden befinden, um zu verhindern, dass der GPS-Empfänger die Batterie entleert. Auf 0 (Null) setzen, um diese Einstellung zu deaktivieren.</string>
+    <string name="absolute_timeout_summary">Anzahl der Sekunden, nach denen die App die Positionsbestimmung unabhängig von anderen Einstellungen aufgibt. Dies ist besonders nützlich, wenn Sie sich in Gebäuden befinden, um zu verhindern, dass das GPS den Akku entleert. Setzen Sie den Wert auf 0, um keine Zeitüberschreitung festzulegen.</string>
     <string name="txt_latitude_short">Breite</string>
     <string name="txt_longitude_short">Länge</string>
     <string name="log_nmea_title">In eine NMEA-Datei protokollieren</string>
     <string name="log_nmea_summary">Erstellt eine unbearbeitete NMEA-Datei, während man versucht, eine Positionsbestimmung zu erhalten. Diese Datei wächst sehr schnell. Dies funktioniert nur während der Verwendung von GPS.</string>
-    <string name="autoopengts_accountname">Benutzername</string>
+    <string name="autoopengts_accountname">Kontoname</string>
     <string name="listeners_gps">GPS</string>
     <string name="listeners_gps_title">GPS/GNSS-Standorte aufzeichnen</string>
     <string name="listeners_gps_summary">Zeichnet Standorte auf, die durch das GPS-Modul des Handys generiert wurden</string>
@@ -298,7 +297,7 @@
     <string name="storage_chooser_text_field_hint">Ordnername</string>
     <string name="new_file_custom_each_time_title">Bei jedem Start nach einem Dateinamen fragen</string>
     <string name="new_file_custom_each_time_summary">Aufforderung zur Eingabe eines benutzerdefinierten Dateinamens bei jedem Start der Aufzeichnung</string>
-    <string name="new_file_custom_keep_changing_title">Erlauben, dass sich benutzerdefinierte Dateinamen dynamisch ändern</string>
+    <string name="new_file_custom_keep_changing_title">Benutzerdefinierte Dateinamen dynamisch ändern lassen</string>
     <string name="new_file_custom_keep_changing_summary">Wenn sich die Werte der benutzerdefinierten Dateinamen ändern, ändert sich auch der aktuelle Dateiname. Beispielsweise wird jede Stunde eine neue Datei erzeugt, wenn der Parameter %HOUR genutzt wird. Häkchen entfernen, um statische Dateinamen zu verwenden.</string>
     <string name="donate_app">Spenden (App)</string>
     <string name="donate_bitcoin">Bitcoin</string>
@@ -307,14 +306,14 @@
     <string name="hide_notification_buttons">Benachrichtigungs-Schaltflächen ausblenden</string>
     <string name="restart_required">GPSLogger muss neu gestartet werden, damit diese Einstellung wirksam wird</string>
     <string name="altitude_subtractgeoidheight_summary">Verwendet den „Mittleren Meeresspiegel“ (MSL) anstelle der WGS84-Höhe (World Geodetic System 1984), indem die Geoidhöhe von der GPS-Höhe abgezogen wird. Gilt nur für Punkte, die mittels GPS-Satelliten und nicht über Netzwerk oder NMEA bestimmt wurden.</string>
-    <string name="altitude_subtractgeoidheight_title">„Mittlerer Meeresspiegel“ statt WGS84 verwenden</string>
+    <string name="altitude_subtractgeoidheight_title">„Mittleren Meeresspiegel“ statt WGS84 verwenden</string>
     <string name="altitude_subtractoffset_title">Höhenversatz abziehen</string>
     <string name="altitude_subtractoffset_summary">Ein Wert in Metern, der von den festgestellten GPS-Höhen abgezogen wird. Verwenden Sie eine negative Zahl, um einen Wert zur Höhe hinzuzufügen. Gilt nur für GPS-Satellitenpunkte, nicht für Netzwerk oder NMEA.</string>
     <string name="upload_failure">Datei konnte nicht hochgeladen werden</string>
     <string name="inaccurate_point_discarded">Ungenauer Messpunkt verworfen</string>
     <string name="not_enough_distance_traveled">Nur %s m zurückgelegt. Messpunkt verworfen.</string>
     <string name="autosend_wifionly_title">Nur über WLAN senden</string>
-    <string name="logview_showlocationsonly">Nur Orte</string>
+    <string name="logview_showlocationsonly">Nur Standorte</string>
     <string name="logview_autoscroll">Automatischer Bildlauf</string>
     <string name="profile_create_new">Neues Profil erstellen</string>
     <string name="profile_add_from_url">Aus URL</string>
@@ -327,9 +326,9 @@
     <string name="gpslogger_permissions_rationale_message_basic"><![CDATA[Diese App benötigt verschiedene Berechtigungen, um ordnungsgemäß zu funktionieren. Sie werden nun mehrmals nach verschiedenen Berechtigungen gefragt (sorry). Hier ist eine Erklärung jeder Berechtigung. ]]></string>
     <string name="gpslogger_permissions_rationale_message_location"><![CDATA[<b>Standort</b> - Diese Berechtigung ermöglicht der App das Lesen der aktuellen Standortdaten.]]></string>
     <string name="gpslogger_permissions_rationale_message_storage"><![CDATA[<b>Fotos/Medien/Dateien</b> - Diese Berechtigung ermöglicht es, Protokolldateien und Testdateien zu speichern, wie auch das Lesen einer Liste von Dateien, um sie hochladen oder teilen zu können. Diese App greift nicht auf Ihre Fotos oder Medien zu.]]></string>
-    <string name="gpslogger_permissions_rationale_message_location_background"><![CDATA[<b>Jederzeit zulassen</b> – Erlaube dieser App, Standortaktualisierungen zu empfangen, wenn sie im Hintergrund ausgeführt wird. ]]></string>
-    <string name="gpslogger_permissions_rationale_message_battery_optimization"><![CDATA[<b>Akkuoptimierung ignorieren</b> – Lassen Sie diese App im Hintergrund laufen, indem Sie die Akkuoptimierung reduzieren. ]]></string>
-    <string name="gpslogger_permissions_permanently_denied"><![CDATA[Sie haben eine oder mehrere Berechtigungen abgelehnt, welche die App benötigt. Sie müssen in die Appeinstellungen wechseln und der App die benötigten Berechtigungen erteilen. <br /><br /> Falls Sie die Berechtigungen permanent abgelehnt haben, so können Sie diese in den Systemeinstellungen zurücksetzen.]]></string>
+    <string name="gpslogger_permissions_rationale_message_location_background"><![CDATA[<b>Jederzeit zulassen</b> – Erlaubt dieser App, Standortaktualisierungen zu empfangen, wenn sie im Hintergrund ausgeführt wird. ]]></string>
+    <string name="gpslogger_permissions_rationale_message_battery_optimization"><![CDATA[<b>Akkuoptimierung ignorieren</b> – Erlaubt dieser App, im Hintergrund zu laufen, indem die Akkuoptimierung reduziert wird. ]]></string>
+    <string name="gpslogger_permissions_permanently_denied"><![CDATA[Sie haben eine oder mehrere Berechtigungen abgelehnt, die diese App benötigt. Sie müssen die App neu starten oder in den Systemeinstellungen diese Berechtigungen erteilen. <br /><br /> Wenn Sie die Berechtigungen permanent abgelehnt haben, können Sie diese in den Systemeinstellungen zurücksetzen.]]></string>
     <string name="gpslogger_permissions_background_location"><![CDATA[Damit GPSLogger im Hintergrund laufen kann, müssen Sie ihm eine zusätzliche Berechtigung erteilen. Auf dem nächsten Bildschirm wählen Sie bitte: ]]></string>
     <string name="privacy_policy">Datenschutzbestimmungen</string>
     <string name="debuglog_attach_to_email">Fehlerprotokolldatei an E-Mail anhängen</string>
@@ -374,7 +373,7 @@
     <string name="retry_get_best_possible_accuracy_summary">Anstatt den ersten Standort mit der eingestellten Genauigkeit aufzuzeichnen, wird erst nach Ablauf der Wartezeit der Standort mit der höchsten Genauigkeit genutzt. Erhöht die Genauigkeit auf Kosten des Aufzeichnungsintervalls.</string>
     <string name="google_drive_folder_path_summary_1">Benutzen Sie einen einzelnen Ordnernamen (z. B. GPSLogger) oder einen Ordnerpfad (z. B. aaa/bbb/ccc). Die Ordner müssen von dieser App erstellt werden.</string>
     <string name="google_drive_folder_path_summary_2">Wenn Sie einen einzelnen Ordnernamen verwenden, kann dieser nach der Erstellung innerhalb von Google Drive verschoben werden. Ordnerpfade sind langsamer, da jeder Teil des Pfades überprüft und ggf. erstellt werden muss, bevor Dateien hochgeladen werden .</string>
-    <string name="log_customurl_summary_detailed">Sendet eine Anfrage an die eingestellte URL wenn ein Standort aufgenommen wurde, in Abhängigkeit vom Aufnahmeintervall.</string>
+    <string name="log_customurl_summary_detailed">Sendet eine Anfrage an die benutzerdefinierte URL, sobald ein Standortpunkt erfasst wird. Abhängig vom Aufzeichnungsintervall.</string>
     <string name="google_drive_folder_path">Google Drive-Ordner</string>
     <string name="autosend_customurl_summary">(Diese Funktion aktiviert die CSV-Aufnahme) Sendet Anfragen gruppiert zu der eingestellten URL, eine für jede Zeile in der CSV-Datei. Abhängig vom automatischen Sendeintervall.</string>
     <string name="log_customurl_discard_offline_locations">Offline-Standorte verwerfen</string>
@@ -385,12 +384,12 @@
     <string name="view_annotation">Annmerkungsansicht</string>
     <string name="txt_speed_kph">Geschwindigkeit (in km/h):</string>
     <string name="hide_notification_from_lock_screen">Benachrichtigung auf dem Sperrbildschirm ausblenden</string>
-    <string name="prompt_for_details_when_logging_starts">Aufforderung zur Eingabe von Details bei Beginn der Protokollierung</string>
+    <string name="prompt_for_details_when_logging_starts">Bei Beginn der Aufzeichnung nach Details fragen</string>
     <string name="started_at">Gestartet am</string>
-    <string name="gpslogger_permissions_rationale_message_notification"><![CDATA[<b>Notifications</b> - Erlaube die Anzeige einer Benachrichtigung, das hilft, den Protokollierungsdienst am Leben zu erhalten. ]]></string>
+    <string name="gpslogger_permissions_rationale_message_notification"><![CDATA[<b>Benachrichtigungen</b> - Erlaubt die Anzeige einer Benachrichtigung, dies hilft dabei, den Protokollierungsdienst aufrechtzuerhalten. ]]></string>
     <string name="passive_filter_time_title">Aktualisierungsintervall für passive Standorte</string>
-    <string name="passive_filter_time_summary">Reduziere unnötige passive Standortaktualisierungen, indem du das minimale Erfassungsintervall (in Sekunden) anpasst.</string>
-    <string name="autosend_wifionly_summary">Warte auf eine WLAN-Verbindung, bevor du irgendwelche Netzwerk-Anfragen machst. Das gilt für alle Anfragen, auch für das Senden und Protokollieren.</string>
+    <string name="passive_filter_time_summary">Reduzieren Sie redundante passive Standortaktualisierungen, indem Sie das minimale Erfassungsintervall (in Sekunden) anpassen.</string>
+    <string name="autosend_wifionly_summary">Auf eine WLAN-Verbindung warten, bevor Netzwerk-Anfragen durchgeführt werden. Gilt für alle Anfragen einschließlich Senden und Protokollieren.</string>
     <string name="only_log_if_significant_motion_title">Nur bei deutlicher Bewegung protokollieren</string>
-    <string name="only_log_if_significant_motion_summary">Nur aufzeichnen, wenn du dich richtig bewegst, wie zum Beispiel beim Laufen, Radfahren oder Autofahren. Was als richtige Bewegung zählt, entscheidet dein Betriebssystem.</string>
+    <string name="only_log_if_significant_motion_summary">Nur protokollieren, wenn bedeutende Aktivitäten wie Gehen, Radfahren oder Autofahren erkannt werden. Bedeutende Bewegungen werden von Ihrem Betriebssystem bestimmt.</string>
 </resources>
