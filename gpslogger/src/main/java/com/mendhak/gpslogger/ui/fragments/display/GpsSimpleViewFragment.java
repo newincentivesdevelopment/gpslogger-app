@@ -47,6 +47,10 @@ import com.mendhak.gpslogger.common.slf4j.Logs;
 import com.mendhak.gpslogger.loggers.Files;
 
 import org.slf4j.Logger;
+import androidx.preference.PreferenceManager;
+import android.accounts.AccountManager;
+import android.content.Intent;
+import androidx.activity.result.ActivityResultLauncher;
 
 
 public class GpsSimpleViewFragment extends GenericViewFragment implements View.OnClickListener {
@@ -58,6 +62,9 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
 
     private View rootView;
     private ActionProcessButton actionButton;
+    private static final String KEY_PRIMARY_EMAIL = "primary_email";
+    private static TextView mPrimaryEmail;
+    private ActivityResultLauncher<Intent> accountPickerLauncher;
 
     public GpsSimpleViewFragment() {
 
@@ -267,6 +274,7 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
 
         setActionButtonStop();
         super.onStart();
+        fetchPrimaryEmail();
     }
 
     @Override
@@ -545,5 +553,30 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
 
     private Toast getToast(int stringResourceId) {
         return getToast(getString(stringResourceId).replace(":", ""));
+    }
+
+     private void fetchPrimaryEmail() {
+
+        String cachedEmail = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_PRIMARY_EMAIL, null);
+
+        if (cachedEmail != null) {
+            // Email already cached
+            if (mPrimaryEmail != null) {
+                mPrimaryEmail.setText(cachedEmail);
+            }
+        } else {
+            // Launch account picker
+            Intent intent = AccountManager.newChooseAccountIntent(
+                    null,
+                    null,
+                    new String[]{"com.google"},
+                    false,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            accountPickerLauncher.launch(intent);
+        }
     }
 }

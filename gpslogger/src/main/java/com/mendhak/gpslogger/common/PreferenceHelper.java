@@ -342,7 +342,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.MINIMUM_INTERVAL)
     public int getMinimumLoggingInterval() {
-        return Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_INTERVAL, "60"), 60);
+        return Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_INTERVAL, "300"), 60);
     }
 
     /**
@@ -380,7 +380,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.MINIMUM_ACCURACY)
     public int getMinimumAccuracy() {
-        return (Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_ACCURACY, "40"), 40));
+        return (Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_ACCURACY, "60"), 40));
     }
 
     public void setMinimumAccuracy(int minimumAccuracy){
@@ -424,7 +424,7 @@ public class PreferenceHelper {
 
     @ProfilePreference(name=PreferenceNames.LOGGING_RETRY_SHOULD_GET_BEST_POSSIBLE_ACCURACY)
     public boolean shouldGetBestPossibleAccuracy() {
-        return prefs.getBoolean(PreferenceNames.LOGGING_RETRY_SHOULD_GET_BEST_POSSIBLE_ACCURACY, false);
+        return prefs.getBoolean(PreferenceNames.LOGGING_RETRY_SHOULD_GET_BEST_POSSIBLE_ACCURACY, true);
     }
 
     public void setShouldGetBestPossibleAccuracy(boolean value){
@@ -643,7 +643,7 @@ public class PreferenceHelper {
 
     @ProfilePreference(name=PreferenceNames.LOG_TO_URL_METHOD)
     public String getCustomLoggingHTTPMethod(){
-        return prefs.getString(PreferenceNames.LOG_TO_URL_METHOD, "GET");
+        return prefs.getString(PreferenceNames.LOG_TO_URL_METHOD, "POST");
     }
 
     public void setCustomLoggingHTTPMethod(String method){
@@ -652,7 +652,7 @@ public class PreferenceHelper {
 
     @ProfilePreference(name=PreferenceNames.LOG_TO_URL_BODY)
     public String getCustomLoggingHTTPBody(){
-        return prefs.getString(PreferenceNames.LOG_TO_URL_BODY,"");
+        return prefs.getString(PreferenceNames.LOG_TO_URL_BODY,"{all:%ALL}");
     }
 
     public void setCustomLoggingHTTPBody(String body){
@@ -691,7 +691,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.LOG_TO_URL_PATH)
     public String getCustomLoggingUrl() {
-        return prefs.getString(PreferenceNames.LOG_TO_URL_PATH, "http://localhost/log?lat=%LAT&longitude=%LON&time=%TIME&s=%SPD");
+        return prefs.getString(PreferenceNames.LOG_TO_URL_PATH, "https://abae-validation.internal.newincentives.org/gps-logger?");
     }
 
     /**
