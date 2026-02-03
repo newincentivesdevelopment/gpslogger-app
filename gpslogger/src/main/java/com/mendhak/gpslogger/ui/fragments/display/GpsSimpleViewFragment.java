@@ -64,7 +64,7 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
     private Session session = Session.getInstance();
 
     private View rootView;
-    private static Activity mActivity;
+    
     private ActionProcessButton actionButton;
 
     private static final String KEY_PRIMARY_EMAIL = "primary_email";

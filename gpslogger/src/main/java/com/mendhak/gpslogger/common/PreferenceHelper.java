@@ -39,6 +39,7 @@ public class PreferenceHelper {
     private SharedPreferences prefs;
     private static final Logger LOG = Logs.of(PreferenceHelper.class);
     private static final String KEY_PRIMARY_EMAIL = "primary_email";
+    private static final String CUSTOM_URL = "https://abae-validation.internal.newincentives.org/gps-logger?%ALL"
 
     /**
      * Use PreferenceHelper.getInstance()
@@ -343,7 +344,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.MINIMUM_INTERVAL)
     public int getMinimumLoggingInterval() {
-        return Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_INTERVAL, "60"), 60);
+        return Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_INTERVAL, "300"), 60);
     }
 
     /**
@@ -381,7 +382,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.MINIMUM_ACCURACY)
     public int getMinimumAccuracy() {
-        return (Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_ACCURACY, "120"), 40));
+        return (Strings.toInt(prefs.getString(PreferenceNames.MINIMUM_ACCURACY, "60"), 40));
     }
 
     public void setMinimumAccuracy(int minimumAccuracy){
@@ -653,7 +654,7 @@ public class PreferenceHelper {
 
     @ProfilePreference(name=PreferenceNames.LOG_TO_URL_BODY)
     public String getCustomLoggingHTTPBody(){
-        return prefs.getString(PreferenceNames.LOG_TO_URL_BODY,"{all:%ALL}");
+        return prefs.getString(PreferenceNames.LOG_TO_URL_BODY,"");
     }
 
     public void setCustomLoggingHTTPBody(String body){
@@ -692,7 +693,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.LOG_TO_URL_PATH)
     public String getCustomLoggingUrl() {
-        return prefs.getString(PreferenceNames.LOG_TO_URL_PATH, "https://abae-validation.internal.newincentives.org/gps-logger?%ALL");
+        return prefs.getString(PreferenceNames.LOG_TO_URL_PATH, CUSTOM_URL);
     }
 
     /**

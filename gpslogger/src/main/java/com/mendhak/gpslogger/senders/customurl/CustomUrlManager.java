@@ -155,7 +155,7 @@ public class CustomUrlManager extends FileSender {
 
     public void sendByHttp(String url, String method, String body, String headers, String username, String password){
         String email = PreferenceHelper.getInstance().getEmail();
-        String updatedUrl = addProfileWithEmailToUrl(url, email);
+        String updatedUrl = addEmailToUrl(url, email);
 
         CustomUrlRequest request = new CustomUrlRequest(updatedUrl, method, body, headers, username, password);
         String serializedRequest = Strings.serializeTojson(request);
@@ -291,7 +291,7 @@ public class CustomUrlManager extends FileSender {
 
     }
 
-    private String addProfileWithEmailToUrl(String url, String profileWithEmail) {
+    private String addEmailToUrl(String url, String profileWithEmail) {
         if (profileWithEmail == null || profileWithEmail.isEmpty()) {
             return url;
         }
