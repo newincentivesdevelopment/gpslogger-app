@@ -36,6 +36,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceManager;
+import android.content.Intent;
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.mendhak.gpslogger.R;
 import com.mendhak.gpslogger.common.EventBusHook;
@@ -47,6 +49,11 @@ import com.mendhak.gpslogger.common.slf4j.Logs;
 import com.mendhak.gpslogger.loggers.Files;
 
 import org.slf4j.Logger;
+import android.accounts.AccountManager;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import static android.app.Activity.RESULT_OK;
+import android.app.Activity;
 
 
 public class GpsSimpleViewFragment extends GenericViewFragment implements View.OnClickListener {
@@ -57,7 +64,14 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
     private Session session = Session.getInstance();
 
     private View rootView;
+    private static Activity mActivity;
     private ActionProcessButton actionButton;
+
+    private static final String KEY_PRIMARY_EMAIL = "primary_email";
+
+    private static TextView mPrimaryEmail;
+
+    private ActivityResultLauncher<Intent> accountPickerLauncher;
 
     public GpsSimpleViewFragment() {
 
@@ -78,6 +92,28 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        accountPickerLauncher =
+                registerForActivityResult(
+                        new ActivityResultContracts.StartActivityForResult(),
+                        result -> {
+                            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                                String selectedEmail = result.getData().getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+
+                                if (selectedEmail != null) {
+
+                                    PreferenceManager
+                                            .getDefaultSharedPreferences(context)
+                                            .edit()
+                                            .putString(KEY_PRIMARY_EMAIL, selectedEmail)
+                                            .apply();
+
+                                    if (mPrimaryEmail != null) {
+                                        mPrimaryEmail.setText(selectedEmail);
+                                    }
+                                }
+                            }
+                        }
+                );
 
     }
 
@@ -267,6 +303,7 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
 
         setActionButtonStop();
         super.onStart();
+        fetchPrimaryEmail();
     }
 
     @Override
@@ -545,5 +582,30 @@ public class GpsSimpleViewFragment extends GenericViewFragment implements View.O
 
     private Toast getToast(int stringResourceId) {
         return getToast(getString(stringResourceId).replace(":", ""));
+    }
+
+    private void fetchPrimaryEmail() {
+
+        String cachedEmail = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_PRIMARY_EMAIL, null);
+
+        if (cachedEmail != null) {
+            // Email already cached
+            if (mPrimaryEmail != null) {
+                mPrimaryEmail.setText(cachedEmail);
+            }
+        } else {
+            // Launch account picker
+            Intent intent = AccountManager.newChooseAccountIntent(
+                    null,
+                    null,
+                    new String[]{"com.google"},
+                    false,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            accountPickerLauncher.launch(intent);
+        }
     }
 }

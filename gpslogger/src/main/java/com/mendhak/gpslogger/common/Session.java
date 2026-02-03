@@ -416,4 +416,5 @@ public class Session {
     public Location getTemporaryLocationForBestAccuracy() {
         return temporaryLocationForBestAccuracy;
     }
+
 }
