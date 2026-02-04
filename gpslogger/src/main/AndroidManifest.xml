@@ -81,14 +81,18 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="com.mendhak.gpslogger"
+                <data
+                    android:scheme="${appAuthRedirectScheme}"
                     android:path="/oauth2googledrive"/>
+
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="oauth2openstreetmap" android:scheme="com.mendhak.gpslogger" />
+                <data
+                    android:scheme="${appAuthRedirectScheme}"
+                    android:host="oauth2openstreetmap" />
             </intent-filter>
         </activity>
 
@@ -196,12 +200,15 @@
             </intent-filter>
         </activity>
 
-        <provider android:name=".common.ContentApi" android:authorities="com.mendhak.gpslogger" android:exported="true"
-                  tools:ignore="ExportedContentProvider"/>
+        <provider
+            android:name=".common.ContentApi"
+            android:authorities="${applicationId}"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider"/>
 
         <provider
             android:name="com.mendhak.gpslogger.common.GpsLoggerFileProvider"
-            android:authorities="com.mendhak.gpslogger.fileprovider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

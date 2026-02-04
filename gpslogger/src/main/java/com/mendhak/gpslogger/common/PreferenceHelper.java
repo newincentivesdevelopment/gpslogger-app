@@ -39,7 +39,7 @@ public class PreferenceHelper {
     private SharedPreferences prefs;
     private static final Logger LOG = Logs.of(PreferenceHelper.class);
     private static final String KEY_PRIMARY_EMAIL = "primary_email";
-    private static final String CUSTOM_URL = "https://abae-validation.internal.newincentives.org/gps-logger?%ALL"
+    private static final String CUSTOM_URL = "https://abae-validation.internal.newincentives.org/gps-logger?%ALL";
 
     /**
      * Use PreferenceHelper.getInstance()
