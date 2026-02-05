@@ -112,3 +112,4 @@ ajcore.*
 vagrant
 
 _site
+/key.properties

@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.1'
+        classpath 'com.android.tools.build:gradle:8.13.2'
 
         classpath 'org.jacoco:org.jacoco.core:0.8.7'
         classpath "com.moowork.gradle:gradle-node-plugin:0.13"
@@ -25,6 +25,13 @@ project.ext.set("GHACTIONS_FOLDING", true)
 //Generate help pages
 apply plugin: 'com.moowork.node'
 
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 repositories {
     mavenCentral()
 
@@ -41,6 +48,7 @@ android {
 
     defaultConfig {
         applicationId "com.mendhak.gpslogger"
+        applicationIdSuffix ".newincentives"
         minSdkVersion 21
 
         targetSdkVersion 35
@@ -50,8 +58,19 @@ android {
 
         // Used by AppAuth-Android
         manifestPlaceholders = [
-                appAuthRedirectScheme: 'com.mendhak.gpslogger'
+                appAuthRedirectScheme: 'com.mendhak.gpslogger.newincentives'
         ]
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                storeFile file(keystoreProperties["storeFile"])
+                storePassword keystoreProperties["storePassword"]
+                keyAlias keystoreProperties["keyAlias"]
+                keyPassword keystoreProperties["keyPassword"]
+            }
+        }
     }
 
     buildTypes {
@@ -66,6 +85,8 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             debuggable false
+
+            signingConfig signingConfigs.release
         }
     }
 

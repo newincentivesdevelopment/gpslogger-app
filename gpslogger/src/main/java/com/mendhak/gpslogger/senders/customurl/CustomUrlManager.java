@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -153,8 +154,10 @@ public class CustomUrlManager extends FileSender {
 
 
     public void sendByHttp(String url, String method, String body, String headers, String username, String password){
+        String email = PreferenceHelper.getInstance().getEmail();
+        String updatedUrl = addEmailToUrl(url, email);
 
-        CustomUrlRequest request = new CustomUrlRequest(url, method, body, headers, username, password);
+        CustomUrlRequest request = new CustomUrlRequest(updatedUrl, method, body, headers, username, password);
         String serializedRequest = Strings.serializeTojson(request);
         String tag = String.valueOf(Objects.hashCode(serializedRequest));
 
@@ -286,6 +289,27 @@ public class CustomUrlManager extends FileSender {
 
         return requests;
 
+    }
+
+    private String addEmailToUrl(String url, String profileWithEmail) {
+        if (profileWithEmail == null || profileWithEmail.isEmpty()) {
+            return url;
+        }
+
+        try {
+            // Remove trailing & or ?
+            if (url.endsWith("&") || url.endsWith("?")) {
+                url = url.substring(0, url.length() - 1);
+            }
+
+            String encodedValue = URLEncoder.encode(profileWithEmail, "UTF-8");
+            String separator = url.contains("?") ? "&" : "?";
+
+            return url + separator + "Email=" + encodedValue;
+
+        } catch (Exception e) {
+            return url; // fail safely
+        }
     }
 
 }
